@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gordon Patterson — UX Designer Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; font-family: 'Jost', sans-serif; color: #2f2e2e; background: #ffffff; display: flex; flex-direction: column;">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px;">
+    <a href="#top" style="display: flex; align-items: center; gap: 14px;">
+      <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%;">
+      <span style="display: flex; flex-direction: column; line-height: 1.1;">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></h1>
+        <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase;">UX Designer</span>
+      </span>
+    </a>
+    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 36px; flex-wrap: wrap;">
+      <a href="#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Portfolio</a>
+      <a href="#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">About</a>
+      <a href="#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Contact</a>
+      <a href="https://www.gordonpatterson.com/_files/ugd/663371_8e1546506ba043608efc418e25ac7e08.pdf" style="font-size: 15px; padding: 10px 14px; min-height: 44px; display: flex; align-items: center; border: 1.5px solid #2f2e2e; border-radius: 999px;">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main" style="flex-grow: 1;">
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" aria-labelledby="portfolio-heading" style="padding: 56px 64px 64px; max-width: 1280px; margin: 0 auto;">
+      <h2 id="portfolio-heading" class="sr-only">Portfolio</h2>
+      <div class="grid-2" style="display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px;">
+
+        <a class="proj-card" href="microsoft-advertising.html" aria-label="Microsoft Advertising Rebrand and redesign case study" style="display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10;">
+          <img src="assets/microsoft-banner.jpg" alt="Microsoft Advertising Rebrand case study" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </a>
+
+        <a class="proj-card" href="bing-ads.html" aria-label="Bing Ads case study" style="display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10;">
+          <img src="assets/bingads-banner.jpg" alt="Bing Ads case study" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </a>
+
+        <a class="proj-card" href="convrse.html" aria-label="conVRse case study" style="display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10;">
+          <img src="assets/convrse-banner.jpg" alt="conVRse case study" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </a>
+
+        <a class="proj-card" href="myyard.html" aria-label="myYard case study" style="display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10;">
+          <img src="assets/myyard-banner.jpg" alt="myYard case study" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading" style="padding: 48px 64px; max-width: 1100px; margin: 0 auto;">
+      <h2 id="about-heading" style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 42px; margin: 0 0 28px;">About</h2>
+      <div style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
+        <img src="assets/about-avatar.jpg" alt="Illustrated portrait of Gordon Patterson" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+        <p style="flex: 1 1 380px; font-size: 18px; line-height: 1.6; color: #4a4a4a; margin: 0;">
+          I have a love for UX and utilizing my knowledge of the user-centered design process to make a change in my community! I am a graduate of the University of Washington&rsquo;s <strong>Human Centered Design &amp; Engineering MS program</strong> and currently work as a Senior Product Designer at <strong>Reddit, Inc.</strong>, supporting the ads platform to provide better experiences for our advertisers &amp; communities worldwide.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CONTACT -->
+  <footer id="contact" aria-labelledby="contact-heading" style="background: #2f2e2e; color: #ffffff; padding: 48px 64px 32px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 id="contact-heading" style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 42px; margin: 0 0 24px;">Contact</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid #4a4a4a; padding-bottom: 16px;">
+        <span style="font-size: 19px; font-weight: 400;">Get in Touch</span>
+        <a href="mailto:gordopat@gmail.com" style="font-size: 16px; color: #d9d3cb;">gordopat@gmail.com</a>
+      </div>
+
+      <form style="display: flex; flex-direction: column; gap: 20px;" aria-label="Contact form">
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label for="name" class="sr-only">Name (required)</label>
+            <input id="name" name="name" type="text" placeholder="Name *" required aria-required="true" style="background: transparent; border: none; border-bottom: 1px solid #6a6a6a; color: #ffffff; font-size: 15px; padding: 10px 2px; min-height: 44px;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label for="email" class="sr-only">Email (required)</label>
+            <input id="email" name="email" type="email" placeholder="Email *" required aria-required="true" style="background: transparent; border: none; border-bottom: 1px solid #6a6a6a; color: #ffffff; font-size: 15px; padding: 10px 2px; min-height: 44px;">
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="subject" class="sr-only">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Subject" style="background: transparent; border: none; border-bottom: 1px solid #6a6a6a; color: #ffffff; font-size: 15px; padding: 10px 2px; min-height: 44px;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="message" class="sr-only">Message</label>
+          <textarea id="message" name="message" placeholder="Message" rows="3" style="background: transparent; border: none; border-bottom: 1px solid #6a6a6a; color: #ffffff; font-size: 15px; padding: 10px 2px; font-family: 'Jost', sans-serif; resize: vertical;"></textarea>
+        </div>
+        <button type="submit" style="align-self: center; margin-top: 8px; background: var(--accent); color: #ffffff; border: none; border-radius: 999px; padding: 13px 38px; font-size: 15px; font-family: 'Jost', sans-serif; font-weight: 500; min-height: 44px; cursor: pointer;">Send</button>
+      </form>
+
+      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px solid #4a4a4a; text-align: center; font-size: 13px; color: #9a9a9a;">
+        gordopat@gmail.com &copy; 2026
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
