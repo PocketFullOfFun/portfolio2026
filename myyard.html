@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>myYard — Gordon Patterson</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<script src="reveal.js" defer></script>
 <div style="width: 100%; min-height: 100vh; box-sizing: border-box; font-family: 'Jost', sans-serif; color: #2f2e2e; background: #ffffff; display: flex; flex-direction: column;">
 
   <!-- HEADER -->
@@ -16,20 +17,21 @@
       <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
       <span style="display: flex; flex-direction: column; line-height: 1.1;">
         <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
-        <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase;">UX Designer</span>
+        <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;">Product Designer</span>
       </span>
     </a>
-    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 36px; flex-wrap: wrap;">
+    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 12px 36px; flex-wrap: wrap;">
       <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Portfolio</a>
       <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">About</a>
       <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Contact</a>
+      <a href="assets/gordon-patterson-resume.pdf" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Resume</a>
     </nav>
   </header>
 
   <main>
     <!-- HERO -->
     <div style="width: 100%; aspect-ratio: 16/5; overflow: hidden;">
-      <img src="assets/myyard-banner.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <img src="assets/myyard-banner.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
 
     <!-- TITLE + FACTS -->
@@ -55,45 +57,45 @@
     </section>
 
     <!-- HOW MIGHT WE -->
-    <section style="padding: 40px 64px; max-width: 900px; margin: 0 auto; text-align: center;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.5; color: #2f2e2e; margin: 0;">&ldquo;How might we provide a way to quickly find local garage/yard sales and provide a fluid management system of merchandise &amp; goods?&rdquo;</p>
+    <section style="padding: 40px 64px; max-width: 900px; margin: 0 auto; text-align: center;" data-reveal>
+      <p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.5; color: #2f2e2e; margin: 0;">&ldquo;How might we provide a way to quickly find local garage/yard sales and provide a fluid management system of merchandise &amp; goods?&rdquo;</p>
     </section>
 
     <!-- RESEARCH -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Research</h2>
+    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;" data-reveal>
+      <h2 style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; letter-spacing: 1.5px; font-size: 24px; margin: 0 0 16px;">Research</h2>
       <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">myYard was a solo project to test a lean UX approach within a 4-day time constraint. I already knew the problem space, so I started with an online survey and closed it after about 60 responses in the first day, then moved into competitive analysis and segmentation. The survey clarified my two user groups &mdash; yard sale organizers and attendees &mdash; with detailed qualitative feedback that directly shaped my personas. From there, a competitive analysis produced a core feature list, and a design-mapping exercise connected each feature back to what my personas actually needed.</p>
 
       <div class="gal gal-2">
         <figure>
-          <img src="assets/my2.jpg" alt="Four survey result charts covering respondent gender, age range, whether they've attended a garage sale, and whether they've organized one.">
+          <img src="assets/my2.png" alt="Four survey result charts covering respondent gender, age range, whether they've attended a garage sale, and whether they've organized one.">
           <figcaption>Survey results that shaped the two core user groups: organizers and attendees.</figcaption>
         </figure>
         <figure>
-          <img src="assets/my3.jpg" alt="Two personas built from the survey: Owen Sims, a 22-year-old grad student who wants quick access to great deals, and Abbie Berns, a 26-year-old organizer who wants an easier way to advertise her sale.">
+          <img src="assets/my3.png" alt="Two personas built from the survey: Owen Sims, a 22-year-old grad student who wants quick access to great deals, and Abbie Berns, a 26-year-old organizer who wants an easier way to advertise her sale.">
           <figcaption>Personas: Owen (attendee) and Abbie (organizer).</figcaption>
         </figure>
       </div>
     </section>
 
     <!-- DESIGN IMPLEMENTATION -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Design implementation</h2>
+    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;" data-reveal>
+      <h2 style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; letter-spacing: 1.5px; font-size: 24px; margin: 0 0 16px;">Design implementation</h2>
       <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">With limited time, I focused most effort on prototyping &mdash; roughly 4&ndash;5 hours whiteboarding and sketching to rough out the interface, using my personas to justify design decisions while keeping the design scalable. I landed on a geo-mapping home screen highlighting local yard sales, since survey respondents said they rarely traveled far for a sale and cared most about what was nearby.</p>
 
       <div class="gal gal-2">
         <figure>
-          <img src="assets/my4.jpg" alt="A wall covered in color-coded sticky notes, used to affinity-map survey and interview findings into feature themes.">
+          <img src="assets/my4.png" alt="A wall covered in color-coded sticky notes, used to affinity-map survey and interview findings into feature themes.">
           <figcaption>Affinity mapping research findings into feature themes.</figcaption>
         </figure>
         <figure>
-          <img src="assets/my5.jpg" alt="A site map diagram showing the app's structure: Home, Sign Up/In, myYard inventory, Notifications, Categories, Yard Sale Details, and My Account.">
+          <img src="assets/my5.png" alt="A site map diagram showing the app's structure: Home, Sign Up/In, myYard inventory, Notifications, Categories, Yard Sale Details, and My Account.">
           <figcaption>The app&rsquo;s information architecture.</figcaption>
         </figure>
       </div>
 
       <figure style="margin-top: 14px;">
-        <img src="assets/my6.jpg" alt="Hand-drawn wireframe sketches for the home map, hamburger menu, and myYard inventory screens, annotated with user stories written from each persona's point of view.">
+        <img src="assets/my6.png" alt="Hand-drawn wireframe sketches for the home map, hamburger menu, and myYard inventory screens, annotated with user stories written from each persona's point of view.">
         <figcaption>Early wireframe sketches, annotated with user stories for each persona.</figcaption>
       </figure>
 
@@ -101,37 +103,37 @@
 
       <div class="gal gal-2">
         <figure>
-          <img src="assets/my7.jpg" alt="An illustrated red yard-sale arrow sign on a wooden post, the concept behind the myYard brand mark.">
+          <img src="assets/my7.png" alt="An illustrated red yard-sale arrow sign on a wooden post, the concept behind the myYard brand mark.">
           <figcaption>The yard-sale &ldquo;arrow sign&rdquo; concept behind the myYard mark.</figcaption>
         </figure>
         <figure>
-          <img src="assets/my8.jpg" alt="Six logo lockup explorations comparing the myYard name and mark against an alternate YardEasy concept.">
+          <img src="assets/my8.png" alt="Six logo lockup explorations comparing the myYard name and mark against an alternate YardEasy concept.">
           <figcaption>Logo and naming exploration.</figcaption>
         </figure>
       </div>
 
       <figure style="margin-top: 14px;">
-        <img src="assets/my9.jpg" alt="Three annotated phone mockups showing the home map with a nearby yard sale, the side navigation menu, and an item detail screen with buy and hold actions." style="max-width: 640px; margin: 0 auto; display: block;">
+        <img src="assets/my9.png" alt="Three annotated phone mockups showing the home map with a nearby yard sale, the side navigation menu, and an item detail screen with buy and hold actions." style="max-width: 640px; margin: 0 auto; display: block;">
         <figcaption style="text-align: center;">Annotated flows for finding a sale, navigating the app, and buying an item.</figcaption>
       </figure>
     </section>
 
     <!-- RESULTS -->
-    <section style="padding: 32px 64px 72px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Results</h2>
+    <section style="padding: 32px 64px 72px; max-width: 900px; margin: 0 auto;" data-reveal>
+      <h2 style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; letter-spacing: 1.5px; font-size: 24px; margin: 0 0 16px;">Results</h2>
       <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">The design came out clean, functional, and aligned with user goals in usability testing with yard-sale enthusiasts. That testing surfaced future directions, including integrating Craigslist ads (which most users were already relying on) and adding item delivery &mdash; positioning myYard as a genuine e-commerce layer on top of yard sales.</p>
 
       <div class="gal gal-2">
         <figure>
-          <img src="assets/my10.jpg" alt="The finished myYard item detail screen on a phone, showing a photo of a small rug for sale with its category and description.">
+          <img src="assets/my10.png" alt="The finished myYard item detail screen on a phone, showing a photo of a small rug for sale with its category and description.">
           <figcaption>The finished item detail screen.</figcaption>
         </figure>
         <figure>
-          <img src="assets/my11.jpg" alt="A hand holding a phone displaying the myYard logo splash screen." style="max-width: 260px; margin: 0 auto; display: block;">
+          <img src="assets/my11.png" alt="A hand holding a phone displaying the myYard logo splash screen." style="max-width: 260px; margin: 0 auto; display: block;">
         </figure>
       </div>
 
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; line-height: 1.6; color: #6a6a6a; margin: 24px 0 0;">&ldquo;No more fumbling with inventory lists or forgetting prices of your goods, because everything is right where you need it to be.&rdquo;</p>
+      <p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-size: 18px; line-height: 1.6; color: #6a6a6a; margin: 24px 0 0;">&ldquo;No more fumbling with inventory lists or forgetting prices of your goods, because everything is right where you need it to be.&rdquo;</p>
     </section>
 
     <div style="padding: 24px 64px; text-align: center;">

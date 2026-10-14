@@ -4,108 +4,205 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Microsoft Advertising Rebrand &amp; Redesign — Gordon Patterson</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<script src="reveal.js" defer></script>
+<style>
+  :root {
+    --ink: #111111;
+    --body: #666666;
+    --line: #eaeaea;
+    --bg: #fafafa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* HERO */
+  .hero { display: flex; flex-direction: column; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 48px 96px 0; }
+  .hero-banner { position: relative; width: 100%; aspect-ratio: 1200 / 394; border-radius: 24px; overflow: hidden; }
+  .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-text h1 { font-size: 32px; font-weight: 500; line-height: 1.15; margin: 0 0 16px; color: var(--ink); }
+  .hero-text p { font-size: 16px; font-weight: 400; line-height: 1.5; color: var(--body); margin: 0; }
+
+  /* METADATA */
+  .metadata { max-width: 1200px; margin: 0 auto; padding: 32px 96px; display: flex; flex-wrap: wrap; gap: 32px; }
+  .meta-item { flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; }
+  .meta-item .label { font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--body); }
+  .meta-item .value { font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--line); max-width: 1200px; margin: 48px auto; }
+
+  /* SECTIONS */
+  .section { display: flex; flex-direction: column; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 96px; }
+  .section-heading h2 { font-size: 32px; font-weight: 500; line-height: 1.2; margin: 0; color: var(--ink); }
+  .section-content { width: 100%; display: flex; flex-direction: column; gap: 40px; }
+  .section-content p { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; }
+  .section-content ul { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; display: block; }
+  figcaption { font-size: 14px; color: var(--body); margin-top: 12px; }
+  .img-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink); margin-bottom: 8px; }
+
+  /* generic row helpers reused across sections */
+  .img-pair { display: flex; gap: 48px; align-items: flex-start; }
+  .img-pair > figure { flex: 1 1 0; min-width: 0; }
+  .text-img-row { display: flex; gap: 48px; align-items: flex-start; }
+  .text-img-row > p { flex: 1 1 0; min-width: 0; margin: 0; }
+  .text-img-row > figure { flex: 0 0 42%; }
+  .icon-row { display: flex; align-items: center; gap: 24px; }
+  .icon-row img { width: 120px; height: 120px; border-radius: 20px; border: 1px solid var(--line); flex-shrink: 0; }
+  .icon-row p { font-size: 14px; color: var(--body); line-height: 1.6; margin: 0; }
+  .caption-below { font-size: 14px; color: var(--body); text-align: center; margin: -24px 0 0; }
+
+  /* FOOTER */
+  .footer { max-width: 1200px; margin: 0 auto; padding: 96px 96px 48px; display: flex; flex-direction: column; gap: 40px; }
+  .footer-row { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .footer-row .back-link { font-size: 16px; font-weight: 500; color: var(--ink); }
+  .footer-row .copyright { font-size: 16px; color: var(--body); }
+
+  @media (max-width: 960px) {
+    .hero, .metadata, .section, .footer { padding-left: 32px; padding-right: 32px; }
+    .hero-text h1 { font-size: 28px; }
+    .img-pair, .text-img-row { flex-direction: column; }
+    .text-img-row > figure { flex: 1 1 auto; width: 100%; }
+  }
+  @media (max-width: 600px) {
+    .metadata { flex-direction: column; }
+    .meta-item { flex: 0 1 auto; }
+  }
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; box-sizing: border-box; font-family: 'Jost', sans-serif; color: #2f2e2e; background: #ffffff; display: flex; flex-direction: column;">
 
-  <!-- HEADER -->
-  <header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px;">
-    <a href="index.html" style="display: flex; align-items: center; gap: 14px;">
-      <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
-      <span style="display: flex; flex-direction: column; line-height: 1.1;">
-        <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
-        <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase;">UX Designer</span>
-      </span>
-    </a>
-    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 36px; flex-wrap: wrap;">
-      <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Portfolio</a>
-      <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">About</a>
-      <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Contact</a>
-    </nav>
-  </header>
+<header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px; font-family: 'Jost', sans-serif; color: #2f2e2e; box-sizing: content-box;">
+  <a href="index.html" style="display: flex; align-items: center; gap: 14px;">
+    <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
+    <span style="display: flex; flex-direction: column; line-height: 1.1;">
+      <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
+      <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;">Product Designer</span>
+    </span>
+  </a>
+  <nav aria-label="Primary" style="display: flex; align-items: center; gap: 12px 36px; flex-wrap: wrap;">
+    <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Portfolio</a>
+    <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">About</a>
+    <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Contact</a>
+    <a href="assets/gordon-patterson-resume.pdf" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Resume</a>
+  </nav>
+</header>
 
-  <main>
-    <!-- HERO -->
-    <div style="width: 100%; aspect-ratio: 16/5; overflow: hidden;">
-      <img src="assets/microsoft-banner.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+<main>
+
+  <div class="hero">
+    <div class="hero-banner">
+      <img src="assets/microsoft-banner.png" alt="">
     </div>
+    <div class="hero-text">
+      <h1>Microsoft Advertising Rebrand &amp; redesign</h1>
+      <p>In 2019, Bing Ads announced a rebranding and redesign effort to become Microsoft Advertising. This change was inspired by rising changes in the market as Facebook Ads and Instagram Ads began to inspire the future of ad management experiences; additionally, Google Ads presented a full redesign of their product utilizing Material Design with a new focus on navigation changes and mobile.</p>
+    </div>
+  </div>
 
-    <!-- TITLE + FACTS -->
-    <section style="padding: 48px 64px 24px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 48px;" class="split">
-      <div>
-        <h1 style="font-weight: 300; font-size: 42px; line-height: 1.2; margin: 0 0 20px;">Microsoft Advertising Rebrand &amp; redesign</h1>
-        <p style="font-size: 17px; line-height: 1.65; color: #4a4a4a; margin: 0;">In 2019, Bing Ads announced a rebranding and redesign effort to become Microsoft Advertising. This change was inspired by rising changes in the market as Facebook Ads and Instagram Ads began to inspire the future of ad management experiences; additionally, Google Ads presented a full redesign of their product utilizing Material Design with a new focus on navigation changes and mobile.</p>
-      </div>
-      <dl style="text-align: right; margin: 0; display: flex; flex-direction: column; gap: 18px;">
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Team</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">2 designers<br>1 researcher<br>4 program managers<br>2 content strategists</dd>
-        </div>
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Role</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">Designer</dd>
-        </div>
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Year</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">2020</dd>
-        </div>
-      </dl>
-    </section>
+  <div class="metadata">
+    <div class="meta-item">
+      <span class="label">Role</span>
+      <span class="value">Designer</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Team</span>
+      <span class="value">2 designers, 1 researcher, 4 program managers, 2 content strategists</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Year</span>
+      <span class="value">2020</span>
+    </div>
+  </div>
 
-    <!-- HOW MIGHT WE -->
-    <section style="padding: 40px 64px; max-width: 900px; margin: 0 auto; text-align: center;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.5; color: #2f2e2e; margin: 0;">&ldquo;How might we provide our advertisers with a modern and accessible ad management experience utilizing Microsoft&rsquo;s Fluent design while maintaining familiarity with users from Google Ads?&rdquo;</p>
-    </section>
+  <div class="divider"></div>
 
-    <!-- RESEARCH -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Research</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">There were several factors that inspired Bing Ads to pursue not only rebranding itself as a product, but to also undergo a complete overhaul of the front-end experience &mdash; first and foremost, the competitive landscape. Our surveys illustrated that users didn&rsquo;t readily associate Bing Ads as a Microsoft product, unlike Facebook Ads and Google Ads, whose branding directly tied to the companies that served them. Microsoft Advertising was a needed change, both for our users on the Bing platform and to begin integrating our service into more of the Microsoft ecosystem. I worked closely with our marketing and content strategy partners to create new help and onboarding material, and as design lead for the account &amp; billing space, scoped this work into several phases so we could make incremental change without disrupting advertisers&rsquo; ability to run their business.</p>
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design question</h2></div>
+    <div class="section-content">
+      <p>&ldquo;How might we provide our advertisers with a modern and accessible ad management experience utilizing Microsoft&rsquo;s Fluent design while maintaining familiarity with users from Google Ads?&rdquo;</p>
+    </div>
+  </div>
 
-      <figure>
-        <img src="assets/msft-oldBingVsGoogle.jpg" alt="The existing Bing Ads campaigns dashboard shown layered over the Google AdWords account view, used to compare the two interfaces directly.">
-        <figcaption>Comparing the existing Bing Ads interface with Google Ads, our closest competitor for shared advertisers.</figcaption>
-      </figure>
+  <div class="divider"></div>
 
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 24px 0 16px;">The rebrand paired with a company-wide push to adopt the Fabric/Web Fluent design system already used by Office and Windows, which opened the door to more cross-platform collaboration. Google Ads had introduced Material Design in 2018, and since a majority of our users also used Google Ads, staying familiar mattered &mdash; we studied their five major navigation reorganizations (primary navigation, secondary navigation, contextual awareness, account switching, and grid data management) as heuristic inspiration, without simply following Google down the Material Design path.</p>
-
-      <div class="gal gal-2">
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Research</h2></div>
+    <div class="section-content">
+      <div class="text-img-row">
+        <p>There were several factors that inspired Bing Ads to pursue not only rebranding itself as a product, but to also undergo a complete overhaul of the front-end experience &mdash; first and foremost, the competitive landscape. Our surveys illustrated that users didn&rsquo;t readily associate Bing Ads as a Microsoft product, unlike Facebook Ads and Google Ads, whose branding directly tied to the companies that served them. Microsoft Advertising was a needed change, both for our users on the Bing platform and to begin integrating our service into more of the Microsoft ecosystem. I worked closely with our marketing and content strategy partners to create new help and onboarding material, and as design lead for the account &amp; billing space, scoped this work into several phases so we could make incremental change without disrupting advertisers&rsquo; ability to run their business.</p>
         <figure>
-          <img src="assets/msft-googleNav1.jpg" alt="Google Ads' top-level navigation menu, grouped into Planning, Shared Library, Bulk Actions, Measurement and Setup.">
+          <img src="assets/msft-oldBingVsGoogle.png" alt="The existing Bing Ads campaigns dashboard shown layered over the Google AdWords account view, used to compare the two interfaces directly." style="aspect-ratio: 802/537; object-fit: cover;">
+          <figcaption>Comparing the existing Bing Ads interface with Google Ads, our closest competitor for shared advertisers.</figcaption>
+        </figure>
+      </div>
+      <div class="text-img-row">
+        <figure>
+          <img src="assets/msft-googleNav1.png" alt="Google Ads' top-level navigation menu, grouped into Planning, Shared Library, Bulk Actions, Measurement and Setup." style="aspect-ratio: 476/327; object-fit: cover;">
           <figcaption>Google Ads&rsquo; top-level navigation groupings.</figcaption>
         </figure>
+        <p>The rebrand paired with a company-wide push to adopt the Fabric/Web Fluent design system already used by Office and Windows, which opened the door to more cross-platform collaboration. Google Ads had introduced Material Design in 2018, and since a majority of our users also used Google Ads, staying familiar mattered &mdash; we wanted to ensure advertisers, from small business owners to high-spending agencies, wouldn&rsquo;t have to relearn a new product when jumping between the two.</p>
+      </div>
+      <div class="text-img-row">
+        <p>However, we simply could not follow Google down the path of Material Design. Instead, we studied primary workflows and features to extrapolate the primary user journeys within the product &mdash; Google Ads had reorganized its navigation in five major ways that inspired our own heuristics: primary campaign management and navigation, secondary navigation, contextual awareness, account switching/search/tools access, and grid data management.</p>
         <figure>
-          <img src="assets/msft-googleNav2.jpg" alt="An annotated wireframe marking the five areas of Google Ads navigation studied: primary navigation, secondary navigation, contextual awareness, account switching, and grid data management.">
+          <img src="assets/msft-googleNav2.png" alt="An annotated wireframe marking the five areas of Google Ads navigation studied: primary navigation, secondary navigation, contextual awareness, account switching, and grid data management." style="aspect-ratio: 873/317; object-fit: cover;">
           <figcaption>The five navigation zones we studied as heuristic inspiration.</figcaption>
         </figure>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- DESIGN IMPLEMENTATION -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Design implementation</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">Adopting web Fluent meant peeling back the layers of the product and rebuilding with accessibility and responsiveness in mind. We audited the entire product to find gaps, inconsistencies, and functional failures. Alongside another designer, I led the effort to align our design guidelines and build a process for sharing assets more easily with our team and developer partners, using an atoms/molecules/organisms approach to reevaluate our human interface guideline documentation.</p>
+  <div class="divider"></div>
 
-      <figure>
-        <img src="assets/msft-fluentDesign.jpg" alt="A title slide reading 'Fluent Design System' describing it as bringing principled design, innovation and customer needs together into a shared, open design system across platforms.">
-        <figcaption>Adopting Microsoft&rsquo;s Fluent Design System as the new visual foundation.</figcaption>
-      </figure>
-
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 24px 0 16px;">Inclusive design meant more than color contrast &mdash; it meant robust interactive states for keyboard tabbing and screen readers, reformatted content for reflow and responsive scenarios, aria labels for images and content, and usability studies that recruited participants with accessibility needs. I drove presentations and knowledge-sharing on keeping accessibility in mind as we built, which ultimately reduced churn and duplicate work across the design process.</p>
-
-      <div style="display: flex; align-items: center; gap: 20px; margin: 24px 0;">
-        <img src="assets/msft-appIcon.jpg" alt="The new Microsoft Advertising app icon: a blue megaphone with a bold letter A." style="width: 120px; height: 120px; border-radius: 20px; border: 1px solid #eee; flex-shrink: 0;">
-        <p style="font-size: 14px; color: #8a8a8a; line-height: 1.6; margin: 0;">The new Microsoft Advertising app icon, part of the rebrand from Bing Ads.</p>
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design implementation</h2></div>
+    <div class="section-content">
+      <p>This was an exciting time for Microsoft Advertising &mdash; while Google Ads was unveiling a new approach to ad and account management, Microsoft products across the company were also shifting to Fabric/Fluent design, which fell in line with our own business goals and UX framework. Our competitors were making strategic, potentially risky changes to their products, and now it was Microsoft Advertising&rsquo;s chance to do the same, further differentiating itself as a leading provider in the market.</p>
+      <div class="text-img-row">
+        <figure>
+          <img src="assets/msft-fluentDesign.png" alt="A title slide reading 'Fluent Design System' describing it as bringing principled design, innovation and customer needs together into a shared, open design system across platforms." style="aspect-ratio: 2012/1068; object-fit: cover;">
+          <figcaption>Adopting <a href="https://fluent2.microsoft.design/" target="_blank" rel="noopener" style="text-decoration: underline;">Microsoft&rsquo;s Fluent Design System</a> as the new visual foundation.</figcaption>
+        </figure>
+        <p>Adopting web Fluent meant peeling back the layers of the product and rebuilding with accessibility and responsiveness in mind, tackling the problem first at the component level. We audited the entire product to find gaps, inconsistencies, and functional failures. Alongside another designer, I led the effort to align our design guidelines and build a process for sharing assets more easily with our team and developer partners, using an atoms/molecules/organisms approach to reevaluate our human interface guideline documentation and update our content so cross-channel teams could collaborate with us more efficiently.</p>
       </div>
-    </section>
+      <p>Inclusive design meant more than color contrast &mdash; it meant robust interactive states for keyboard tabbing and screen readers, reformatted content for reflow and responsive scenarios, aria labels for images and content, and usability studies that recruited participants with accessibility needs. I drove presentations and knowledge-sharing on keeping accessibility in mind as we built, which ultimately reduced churn and duplicate work across the design process.</p>
+      <div class="icon-row">
+        <img src="assets/msft-appIcon.png" alt="The new Microsoft Advertising app icon: a blue megaphone with a bold letter A.">
+        <p>The new Microsoft Advertising app icon, part of the rebrand from Bing Ads.</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- RESULTS -->
-    <section style="padding: 32px 64px 72px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Results</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">The feedback was clear, and we delivered on these benefits:</p>
-      <ul class="results" style="font-size: 16px; line-height: 1.6; color: #4a4a4a; padding-left: 20px; margin: 0 0 32px;">
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Results</h2></div>
+    <div class="section-content">
+      <p>The feedback was clear, and we delivered on these benefits:</p>
+      <ul>
         <li>Better tools to help improve effectiveness and save time</li>
         <li>Confidence to test campaign changes</li>
         <li>Ability to drive customers to immediate action</li>
@@ -114,46 +211,57 @@
         <li>Easier resolution of payment problems</li>
         <li>Healthier accounts through AI-powered recommendations</li>
       </ul>
-
-      <div class="gal gal-2">
+      <div>
+        <div class="img-pair">
+          <figure>
+            <div class="img-label">Before</div>
+            <img src="assets/msft-overviewOld.png" alt="The old Microsoft Advertising account overview page, with a top navigation bar and a dense grid of performance cards." style="aspect-ratio: 817/658; object-fit: cover;">
+          </figure>
+          <figure>
+            <div class="img-label">After</div>
+            <img src="assets/msft-overviewNew.png" alt="The redesigned account overview page, with a left-hand navigation rail and a cleaner performance and competition layout." style="aspect-ratio: 816/579; object-fit: cover;">
+          </figure>
+        </div>
+        <p class="caption-below">Account overview: left-hand navigation replaced the old top bar, and performance data moved into clearer, scannable cards.</p>
+      </div>
+      <p>Tools such as the date picker gained a refreshing Fluent design look and feel that helps users quickly find reporting insight into their campaign performance. This component is crucial not just for our external advertisers navigating the product, but also for our internal account managers supporting customers worldwide, helping illustrate their periods of ad spend and goals. It was designed with accessibility at the forefront &mdash; quick, easy keyboard navigation and clear visual indicators of selection &mdash; saving advertisers time and money by helping them find the insights they need faster.</p>
+      <div>
+        <div class="img-pair">
+          <figure style="flex: 0 0 30%;">
+            <div class="img-label">Before</div>
+            <img src="assets/msft-datePickerOld.png" alt="The old date range picker, a plain dropdown list of preset ranges with two small text fields for a custom range." style="aspect-ratio: 327/499; object-fit: cover;">
+          </figure>
+          <figure>
+            <div class="img-label">After</div>
+            <img src="assets/msft-datePickerNew.png" alt="The redesigned date range picker, with dual calendars, a visible custom range field, and a comparison toggle." style="aspect-ratio: 827/504; object-fit: cover;">
+          </figure>
+        </div>
+        <p class="caption-below">The date range picker gained a visual calendar and a clearer comparison toggle.</p>
+      </div>
+      <p style="text-align: center; font-size: 16px; font-style: italic;">&ldquo;Easier access to my campaigns and their results!&rdquo;</p>
+      <div class="text-img-row">
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+          <p style="margin: 0;">&ldquo;This redesign represents a new, principled design approach that is centered on customer feedback and contributes to an open, cross-platform design system. The redesigned Microsoft Advertising will be a member of the Microsoft Fluent design community, allowing the product to continuously maintain the newest, most modern design principles for our customers.&rdquo;</p>
+          <p style="margin: 0; font-size: 14px;">&mdash; From Microsoft Blog, &ldquo;Achieve More With The Redesigned Microsoft Advertising&rdquo;</p>
+        </div>
         <figure>
-          <p class="baLabel">Before</p>
-          <img src="assets/msft-overviewOld.jpg" alt="The old Microsoft Advertising account overview page, with a top navigation bar and a dense grid of performance cards.">
-        </figure>
-        <figure>
-          <p class="baLabel">After</p>
-          <img src="assets/msft-overviewNew.jpg" alt="The redesigned account overview page, with a left-hand navigation rail and a cleaner performance and competition layout.">
+          <img src="assets/msft-newUI.jpg" alt="The finished Microsoft Advertising interface: left-hand navigation, a performance chart, campaign list, top changes, and device breakdown on the account overview page." style="aspect-ratio: 1516/864; object-fit: cover;">
+          <figcaption>The finished Microsoft Advertising interface.</figcaption>
         </figure>
       </div>
-      <p style="font-size: 13px; color: #8a8a8a; text-align: center; margin: -8px 0 32px;">Account overview: left-hand navigation replaced the old top bar, and performance data moved into clearer, scannable cards.</p>
-
-      <div class="gal gal-2">
-        <figure>
-          <p class="baLabel">Before</p>
-          <img src="assets/msft-datePickerOld.jpg" alt="The old date range picker, a plain dropdown list of preset ranges with two small text fields for a custom range.">
-        </figure>
-        <figure>
-          <p class="baLabel">After</p>
-          <img src="assets/msft-datePickerNew.jpg" alt="The redesigned date range picker, with dual calendars, a visible custom range field, and a comparison toggle.">
-        </figure>
-      </div>
-      <p style="font-size: 13px; color: #8a8a8a; text-align: center; margin: -8px 0 32px;">The date range picker gained a visual calendar and a clearer comparison toggle.</p>
-
-      <figure>
-        <img src="assets/msft-newUI.jpg" alt="The finished Microsoft Advertising interface: left-hand navigation, a performance chart, campaign list, top changes, and device breakdown on the account overview page.">
-        <figcaption>The finished Microsoft Advertising interface.</figcaption>
-      </figure>
-    </section>
-
-    <div style="padding: 24px 64px; text-align: center;">
-      <a href="index.html#portfolio" style="font-size: 14px; color: #8a8a8a; border-bottom: 1px solid #cccccc; padding-bottom: 2px;">&larr; Back to portfolio</a>
     </div>
-  </main>
+  </div>
 
-  <footer style="background: #2f2e2e; color: #9a9a9a; padding: 24px 64px; text-align: center; font-size: 13px;">
-    gordopat@gmail.com &copy; 2026
-  </footer>
+</main>
 
+<div class="divider" style="margin-top: 96px;"></div>
+
+<div class="footer">
+  <div class="footer-row">
+    <a class="back-link" href="index.html#portfolio">&larr; Back to portfolio</a>
+    <span class="copyright">gordopat@gmail.com &copy; 2026</span>
+  </div>
 </div>
+
 </body>
 </html>

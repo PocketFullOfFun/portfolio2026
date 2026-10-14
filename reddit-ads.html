@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reddit Ads Business Manager — Gordon Patterson</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<script src="reveal.js" defer></script>
+<style>
+  :root {
+    --ink: #111111;
+    --body: #666666;
+    --line: #eaeaea;
+    --bg: #fafafa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* HERO */
+  .hero { display: flex; flex-direction: column; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 48px 96px 0; }
+  .hero-banner { position: relative; width: 100%; aspect-ratio: 1200 / 394; border-radius: 24px; overflow: hidden; }
+  .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-text h1 { font-size: 32px; font-weight: 500; line-height: 1.15; margin: 0 0 16px; color: var(--ink); }
+  .hero-text p { font-size: 16px; font-weight: 400; line-height: 1.5; color: var(--body); margin: 0; }
+
+  /* METADATA */
+  .metadata { max-width: 1200px; margin: 0 auto; padding: 32px 96px; display: flex; flex-wrap: wrap; gap: 32px; }
+  .meta-item { flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; }
+  .meta-item .label { font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--body); }
+  .meta-item .value { font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--line); max-width: 1200px; margin: 48px auto; }
+
+  /* SECTIONS */
+  .section { display: flex; flex-direction: column; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 96px; }
+  .section-heading h2 { font-size: 32px; font-weight: 500; line-height: 1.2; margin: 0; color: var(--ink); }
+  .section-content { width: 100%; display: flex; flex-direction: column; gap: 40px; }
+  .section-content p { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; }
+  .section-content ul { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 24px; }
+  figcaption { font-size: 14px; color: var(--body); margin-top: 12px; }
+  .img-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink); margin-bottom: 8px; }
+
+  /* generic row helpers reused across sections */
+  .img-pair { display: flex; gap: 48px; align-items: flex-start; }
+  .img-pair > figure { flex: 1 1 0; min-width: 0; }
+  .text-img-row { display: flex; gap: 48px; align-items: flex-start; }
+  .text-img-row > p { flex: 1 1 0; min-width: 0; margin: 0; }
+  .text-img-row > figure { flex: 0 0 42%; }
+  .icon-row { display: flex; align-items: center; gap: 24px; }
+  .icon-row img { width: 120px; height: 120px; border-radius: 20px; border: 1px solid var(--line); flex-shrink: 0; }
+  .icon-row p { font-size: 14px; color: var(--body); line-height: 1.6; margin: 0; }
+  .caption-below { font-size: 14px; color: var(--body); text-align: center; margin: -24px 0 0; }
+
+  /* custom-cropped business model canvas (image is wider than its display box) */
+  .img-crop { position: relative; width: 100%; aspect-ratio: 1125 / 653; border-radius: 24px; overflow: hidden; }
+  .img-crop img { position: absolute; left: -6.67%; top: 0; width: 113.48%; height: 109.97%; max-width: none; }
+
+  /* metric cards (Results & impact) */
+  .metrics-row { display: flex; gap: 24px; align-items: stretch; }
+  .metric-card { background: #ffffff; border: 1px solid var(--line); border-radius: 4px; padding: 32px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1 1 0; min-width: 0; }
+  .metric-card .stat { font-size: 32px; font-weight: 600; color: #3e5c76; margin: 0; }
+  .metric-card .stat-label { font-size: 14px; color: var(--body); line-height: 1.4; margin: 0; }
+
+  /* FOOTER */
+  .footer { max-width: 1200px; margin: 0 auto; padding: 96px 96px 48px; display: flex; flex-direction: column; gap: 40px; }
+  .footer-row { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .footer-row .back-link { font-size: 16px; font-weight: 500; color: var(--ink); }
+  .footer-row .copyright { font-size: 16px; color: var(--body); }
+
+  @media (max-width: 960px) {
+    .hero, .metadata, .section, .footer { padding-left: 32px; padding-right: 32px; }
+    .hero-text h1 { font-size: 28px; }
+    .img-pair, .text-img-row, .metrics-row { flex-direction: column; }
+    .text-img-row > figure { flex: 1 1 auto; width: 100%; }
+  }
+  @media (max-width: 600px) {
+    .metadata { flex-direction: column; }
+    .meta-item { flex: 0 1 auto; }
+  }
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px; font-family: 'Jost', sans-serif; color: #2f2e2e; box-sizing: content-box;">
+  <a href="index.html" style="display: flex; align-items: center; gap: 14px;">
+    <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
+    <span style="display: flex; flex-direction: column; line-height: 1.1;">
+      <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
+      <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;">Product Designer</span>
+    </span>
+  </a>
+  <nav aria-label="Primary" style="display: flex; align-items: center; gap: 12px 36px; flex-wrap: wrap;">
+    <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Portfolio</a>
+    <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">About</a>
+    <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Contact</a>
+    <a href="assets/gordon-patterson-resume.pdf" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Resume</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-banner">
+      <img src="assets/reddit-hero.png" alt="">
+    </div>
+    <div class="hero-text">
+      <h1>Reddit Ads business manager</h1>
+      <p>Business Manager centralizes the management of your business&rsquo;s assets, user roles, business partners, and ad accounts. As Reddit began to scale its ads platform, accommodating agencies and large customer segments (LCS) required a richer interface for permissioning and security. This includes inviting/managing members, managing Reddit profiles (u/profile), creating pixels, and managing billing.</p>
+    </div>
+  </div>
+
+  <div class="metadata">
+    <div class="meta-item">
+      <span class="label">Role</span>
+      <span class="value">Lead product designer</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Timeline</span>
+      <span class="value">Q4 2025 &ndash; Q1 2026 (6 months)</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Team</span>
+      <span class="value">1 designer, 1 product manager, 5 engineers, 1 researcher</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Tools</span>
+      <span class="value">Figma, Cursor</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design question</h2></div>
+    <div class="section-content">
+      <p>&ldquo;How might we expand our tools for advertisers to manage their brand and business assets in the Reddit Ads Manager?&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Research</h2></div>
+    <div class="section-content">
+      <p>When we take a look at Reddit&rsquo;s business model, there was one clear way to scale beyond its post-IPO goals of increasing DAU (daily active users) and MAU (monthly active users): expanding our consumer business tools and providing a clear path for brands to increase their organic and paid presence on the platform. This not only meant that popular brands like Nike, DraftKings, and Blizzard wanted to engage directly with their communities, it also meant that they wanted to capture valuable conversions and drive engagement to their content.</p>
+      <div class="img-crop">
+        <img src="assets/reddit-businessmodel.png" alt="Reddit's business model canvas, mapping customer segments, value propositions, channels and revenue streams for the ads platform.">
+      </div>
+      <div class="text-img-row">
+        <figure>
+          <img src="assets/reddit-adcomparison.png" alt="A comparison of promoted Reddit ad content styled to feel native and testimonial-driven, grounded in real reviews rather than traditional brand messaging." style="aspect-ratio: 602/399; object-fit: cover;">
+        </figure>
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0;">Reddit faced a more unique challenge than our competitors when it came to business and brand engagement on the platform. While Redditors were proud to invite discussion around their favorite brands, they were hesitant to engage directly with organic content that the brand produced. This resulted in businesses relying heavily on promoted content that felt more &ldquo;Reddit-y&rdquo; and grounded in actual testimonial data or purchase reviews. This also meant that agencies needed access to their client&rsquo;s consumer-facing profiles, brand assets, and organic-facing permissions.</p>
+          <p style="margin: 0;">However, without a business manager, agencies were limited in their approach to creating Reddit-ready ads; they had to rely on multiple logins and sharing passwords in order to gain access to their client&rsquo;s assets. This created a security nightmare and resulted in most brands refusing to work with Reddit until we had proper security measures in place.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design process</h2></div>
+    <div class="section-content">
+      <div class="text-img-row">
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0;">A competitive review revealed that Reddit Ads was falling behind our competitors in three major tablestakes areas: transparency, permissioning, and security.</p>
+          <p style="margin: 0;">Not only did advertisers not know the difference between their ad account and business entities, but the UI offered nothing to provide clarity and direction on how to manage these separate IDs. In fact, we first focused on deconstructing an &ldquo;account ID&rdquo; into 4 separate entities: business, ad account, profile, and member.</p>
+        </div>
+        <figure>
+          <img src="assets/reddit-rta1.png" alt="Early wireframes deconstructing an account ID into four separate entities: business, ad account, profile, and member." style="aspect-ratio: 748/424; object-fit: cover;">
+        </figure>
+      </div>
+      <div class="text-img-row">
+        <figure>
+          <img src="assets/reddit-rta3.png" alt="The Business details page, the first UI introduced for the new business entity, used internally by Reddit admins and account managers." style="aspect-ratio: 556/526; object-fit: cover;">
+        </figure>
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0;">To get us there, we needed to introduce the concept of a &ldquo;business&rdquo; entity to our advertisers. This shell would house the users/members in the business, the ad accounts the business managed, and the consumer-facing profiles found on Reddit.</p>
+          <p style="margin: 0;">Business details, the very first UI introduced for a business entity, started as an internal-only page that Reddit admins and account managers could utilize as they worked with their clients. It provided the first sense of what data the business entity housed; this impacted both onboarding and how advertisers began to expand their business out with multiple ad accounts, different time zones, and spending in various currencies.</p>
+          <p style="margin: 0;">What prevented most of our agencies and LCS advertisers from onboarding onto Reddit from other similar ad platforms was our lack of security tooling. In particular, email allowlisting and two-factor authentication were absolute necessities for some of our brands to advertise with us.</p>
+        </div>
+      </div>
+      <div class="text-img-row">
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0;">As we began to expand our internal tools into permissioning, we started to expose the UI to our advertisers through the form of an official business manager. This business manager was brand new for Reddit and our clients and allowed them to see a full scope of their business: what members were added to the business, their roles, the profiles that they managed, and the budget allocation in their spending.</p>
+          <p style="margin: 0;">This simple, yet powerful, tool was a game changer for our advertisers and began the process of unlocking millions of ad revenue because we could now onboard top-tier brands into Reddit Ads and provide them a way to self-sustain.</p>
+          <p style="margin: 0;">This also was the first step in setting the groundwork for how our business tools would scale into a singular destination that unified both promoted and organic content on Reddit.</p>
+        </div>
+        <figure>
+          <img src="assets/reddit-rta2.png" alt="The business manager UI showing members, their roles, managed profiles, and budget allocation across the business." style="aspect-ratio: 710/385; object-fit: cover;">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Final designs</h2></div>
+    <div class="section-content">
+      <p>Our business manager launched with a set of MVP features that solved some of our advertiser&rsquo;s most critical user journeys, but it lacked depth and there was still much to be desired from our highest-spending clients. Over the course of two quarters, we expanded the functionality of business manager to include partnership sharing with other businesses, account-level spend limits, pixel sharing, brand manager roles, ad account creation, business-level notifications and more.</p>
+      <div class="img-pair">
+        <figure>
+          <div class="img-label">At launch</div>
+          <img src="assets/reddit-atlaunch.png" alt="The business manager interface at launch, with a simple members list and basic account management." style="aspect-ratio: 2480/1556; object-fit: cover;">
+        </figure>
+        <figure>
+          <div class="img-label">Scaled</div>
+          <img src="assets/reddit-scaled.png" alt="The scaled business manager interface, with partnership sharing, spend limits, pixel sharing, and expanded notifications." style="aspect-ratio: 2480/1556; object-fit: cover;">
+        </figure>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="margin: 0;">The business manager was just the first step in Reddit&rsquo;s offerings as it created a centralized UI for managing promoted content assets; however, it failed at providing insight into how a business was performing organically on the Reddit consumer platform. If an advertiser started their journey in ads, then they often lacked any organic presence on Reddit. The inverse was also true when a brand would begin organic engagement on Reddit but wasn&rsquo;t quite sure how to expand into promoted content. This disconnect between ads and organic started as a small fracture that grew into a larger hindrance for our brands on Reddit as we scaled.</p>
+        <p style="margin: 0;">This became the catalyst for joining both efforts and creating a UI that allowed a business to see a bird&rsquo;s-eye view of their entire presence on Reddit &mdash; bringing together the top performing ads, overall spend, account-level recommendations, optiscore, trends, top posts, profile engagements, and even rich insights that provided a clear direction to advertisers on what actions they should take next.</p>
+      </div>
+      <div>
+        <div class="img-label">Next gen</div>
+        <div class="img-pair">
+          <figure>
+            <img src="assets/reddit-nextgen1.png" alt="A next-generation concept unifying promoted and organic business insights into one dashboard." style="aspect-ratio: 2480/3536; object-fit: cover;">
+          </figure>
+          <figure>
+            <img src="assets/reddit-nextgen2.png" alt="A next-generation concept showing account-level recommendations, optiscore, and top-post engagement insights." style="aspect-ratio: 2480/3536; object-fit: cover;">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Results &amp; impact</h2></div>
+    <div class="section-content">
+      <div class="text-img-row">
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <p style="margin: 0;">&ldquo;The introduction of the Business Manager partners page is a foundational shift that we believe will revolutionize how agencies leverage Reddit for their clients. The ability to manage permissions, share profiles, and centralize activity is just the beginning. We&rsquo;re thrilled about the future possibilities as we continue to add more shareable assets, further empowering our agency partners to thrive on the platform.&rdquo;</p>
+            <p style="margin: 0; font-size: 14px;">&mdash; Alex Underwood, Global Head of Agency Development at Reddit</p>
+          </div>
+          <p style="margin: 0;">The results were clear when business manager was in the hands of our advertisers: we were able to expand the types of clients we supported with more security features, our advertisers had insight into their brand life across both promoted and organic, and most importantly, advertisers found value in their spend through an increase of ROAS because they had more control and flexibility. In a single quarter, business manager made it possible for Reddit Ads to accrue over $690m in advertiser spend.</p>
+        </div>
+        <figure>
+          <img src="assets/reddit-roi.png" alt="A chart illustrating the metrics that prove ROI with Reddit Ads." style="aspect-ratio: 495/328; object-fit: cover;">
+        </figure>
+      </div>
+      <div class="metrics-row">
+        <div class="metric-card">
+          <p class="stat">$2.1B ad revenue</p>
+          <p class="stat-label">74% increase year-over-year 2024&ndash;2025</p>
+        </div>
+        <div class="metric-card">
+          <p class="stat">+75%</p>
+          <p class="stat-label">Total active advertisers in Q4 2025</p>
+        </div>
+        <div class="metric-card">
+          <p class="stat">$690m</p>
+          <p class="stat-label">Advertiser spend in one quarter (Q4 2025)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="divider" style="margin-top: 96px;"></div>
+
+<div class="footer">
+  <div class="footer-row">
+    <a class="back-link" href="index.html#portfolio">&larr; Back to portfolio</a>
+    <span class="copyright">gordopat@gmail.com &copy; 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

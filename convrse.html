@@ -4,169 +4,309 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>conVRse — Gordon Patterson</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<script src="reveal.js" defer></script>
+<style>
+  :root {
+    --ink: #111111;
+    --body: #666666;
+    --line: #eaeaea;
+    --bg: #fafafa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding-left: 96px; padding-right: 96px; }
+
+  /* HERO */
+  .hero { display: flex; flex-direction: column; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 48px 96px 0; }
+  .hero-banner { position: relative; width: 100%; aspect-ratio: 1200 / 394; border-radius: 24px; overflow: hidden; }
+  .hero-banner img { position: absolute; left: 0; top: -10.15%; width: 100%; height: 195.49%; max-width: none; }
+  .hero-text h1 { font-size: 32px; font-weight: 500; line-height: 1.15; margin: 0 0 16px; color: var(--ink); }
+  .hero-text p { font-size: 16px; font-weight: 400; line-height: 1.5; color: var(--body); margin: 0; }
+
+  /* METADATA */
+  .metadata { max-width: 1200px; margin: 0 auto; padding: 32px 96px; display: flex; flex-wrap: wrap; gap: 32px; }
+  .meta-item { flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; }
+  .meta-item .label { font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--body); }
+  .meta-item .value { font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--ink); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--line); max-width: 1200px; margin: 48px auto; }
+
+  /* SECTIONS */
+  .section { display: flex; flex-direction: column; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 96px; }
+  .section-heading h2 { font-size: 32px; font-weight: 500; line-height: 1.2; margin: 0; color: var(--ink); }
+  .section-content { width: 100%; display: flex; flex-direction: column; gap: 40px; }
+  .section-content p { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; }
+
+  figure { margin: 0; }
+  figure img { width: 100%; height: 100%; object-fit: cover; }
+  figcaption { font-size: 14px; color: var(--body); margin-top: 12px; }
+
+  /* RESEARCH two-col */
+  .research-columns { display: flex; gap: 48px; align-items: flex-start; }
+  .research-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+  .research-col figure.img-cv3 { aspect-ratio: 3300 / 2550; }
+  .research-col figure.img-cv5 { aspect-ratio: 3300 / 2550; }
+  .research-col figure.img-cv2 { aspect-ratio: 871 / 865; border-radius: 24px; overflow: hidden; }
+  .research-col figure.img-cv4 { aspect-ratio: 3300 / 2550; }
+
+  /* PROCESS */
+  .process-intro-row { display: flex; gap: 40px; align-items: flex-start; }
+  .process-intro-row p { flex: 1 1 0; min-width: 0; margin: 0; }
+  .process-intro-row .img-cv6 { flex: 0 0 38%; }
+  .process-pair { display: flex; gap: 24px; align-items: flex-start; }
+  .process-pair > div { flex: 1 1 0; min-width: 0; }
+  .img-cv6 { aspect-ratio: 450 / 337; }
+  .img-cv7 { aspect-ratio: 1940 / 1311; }
+  .img-cv8 { aspect-ratio: 1152 / 1291; }
+  .img-cv9 { aspect-ratio: 771 / 1083; }
+
+  /* FINAL DESIGNS (full width, no left label) */
+  .final-designs { max-width: 1200px; margin: 0 auto; padding: 32px 96px; display: flex; flex-direction: column; gap: 48px; }
+  .final-designs h2 { font-size: 32px; font-weight: 500; margin: 0; color: var(--ink); }
+  .final-designs p { font-size: 16px; line-height: 1.6; color: var(--body); margin: 0; }
+  .final-row { display: flex; gap: 48px; align-items: flex-start; }
+  .img-cv10 { flex: 1 1 0; min-width: 0; aspect-ratio: 1234 / 706; }
+  .img-cv11 { flex: 0 0 50%; aspect-ratio: 605 / 309; }
+  .img-cv14 { flex: 0 0 55%; aspect-ratio: 659 / 366; }
+  .img-cv15 { flex: 1 1 0; min-width: 0; aspect-ratio: 2000 / 1500; }
+  .final-pair { display: flex; gap: 48px; align-items: flex-start; }
+  .final-pair .img-cv12 { flex: 0 0 58%; aspect-ratio: 694 / 464; }
+  .final-pair .img-cv13 { flex: 1 1 0; min-width: 0; aspect-ratio: 1323 / 1354; }
+
+  /* RESULTS */
+  .results-row { display: flex; gap: 48px; align-items: flex-start; }
+  .img-cv16, .img-cv17 { flex: 1 1 0; min-width: 0; aspect-ratio: 640 / 427; }
+  .results-quote p { margin: 0 0 16px; }
+  .results-quote p:last-child { margin-bottom: 0; }
+
+  .video-embed { position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000; }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* FOOTER */
+  .footer { max-width: 1200px; margin: 0 auto; padding: 96px 96px 48px; display: flex; flex-direction: column; gap: 40px; }
+  .footer-row { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .footer-row .back-link { font-size: 16px; font-weight: 500; color: var(--ink); }
+  .footer-row .copyright { font-size: 16px; color: var(--body); }
+
+  @media (max-width: 960px) {
+    .wrap, .nav, .hero, .metadata, .section, .final-designs, .footer { padding-left: 32px; padding-right: 32px; }
+    .hero-text h1 { font-size: 36px; }
+    .research-columns { flex-direction: column; }
+    .process-intro-row, .process-pair, .final-row, .final-pair, .results-row { flex-direction: column; }
+  }
+  @media (max-width: 600px) {
+    .nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .nav-links { gap: 24px; }
+    .metadata { flex-direction: column; }
+    .meta-item { flex: 0 1 auto; }
+  }
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; box-sizing: border-box; font-family: 'Jost', sans-serif; color: #2f2e2e; background: #ffffff; display: flex; flex-direction: column;">
 
-  <!-- HEADER -->
-  <header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px;">
-    <a href="index.html" style="display: flex; align-items: center; gap: 14px;">
-      <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
-      <span style="display: flex; flex-direction: column; line-height: 1.1;">
-        <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
-        <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase;">UX Designer</span>
-      </span>
-    </a>
-    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 36px; flex-wrap: wrap;">
-      <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Portfolio</a>
-      <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">About</a>
-      <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center;">Contact</a>
-    </nav>
-  </header>
+<header style="position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #eeeeee; display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; flex-wrap: wrap; gap: 16px; font-family: 'Jost', sans-serif; color: #2f2e2e; box-sizing: content-box;">
+  <a href="index.html" style="display: flex; align-items: center; gap: 14px;">
+    <img src="assets/logo.png" alt="Gordon Patterson logo mark" style="width: 48px; height: 48px; border-radius: 50%; border: none;">
+    <span style="display: flex; flex-direction: column; line-height: 1.1;">
+      <span style="font-size: 26px; font-weight: 300; letter-spacing: 0.3px;"><span style="font-weight:300;">gordon</span><span style="font-weight:500;">patterson</span></span>
+      <span style="font-size: 13px; color: #8a8a8a; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;">Product Designer</span>
+    </span>
+  </a>
+  <nav aria-label="Primary" style="display: flex; align-items: center; gap: 12px 36px; flex-wrap: wrap;">
+    <a href="index.html#portfolio" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Portfolio</a>
+    <a href="index.html#about" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">About</a>
+    <a href="index.html#contact" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Contact</a>
+    <a href="assets/gordon-patterson-resume.pdf" style="font-size: 15px; padding: 10px 4px; min-height: 44px; display: flex; align-items: center; box-sizing: content-box;">Resume</a>
+  </nav>
+</header>
 
-  <main>
-    <!-- HERO -->
-    <div style="width: 100%; aspect-ratio: 16/5; overflow: hidden;">
-      <img src="assets/convrse-banner.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+<main>
+
+  <div class="hero">
+    <div class="hero-banner">
+      <img src="assets/convrse-banner.png" alt="">
     </div>
+    <div class="hero-text">
+      <h1>conVRse</h1>
+      <p>ConVRse is an immersive learning adventure that places users right in the heart of another culture and experiences that provide opportunities for learning the three essential elements of language: vocabulary, listening, and speaking. By utilizing virtual reality (VR) technology, ConVRse creates an atmosphere where users can interact, socialize, and collaborate with other learners and native speakers in order to learn a new language. ConVRse aims to provide a delightful and impactful method for acquiring a second language.</p>
+    </div>
+  </div>
 
-    <!-- TITLE + FACTS -->
-    <section style="padding: 48px 64px 24px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 48px;" class="split">
-      <div>
-        <h1 style="font-weight: 300; font-size: 42px; line-height: 1.2; margin: 0 0 20px;">conVRse</h1>
-        <p style="font-size: 17px; line-height: 1.65; color: #4a4a4a; margin: 0;">conVRse is an immersive learning adventure that places users in the heart of another culture, with opportunities to build the three essential elements of language: vocabulary, listening, and speaking. Using virtual reality, conVRse creates an atmosphere where users can interact, socialize, and collaborate with other learners and native speakers &mdash; a delightful, more impactful way to acquire a second language.</p>
-      </div>
-      <dl style="text-align: right; margin: 0; display: flex; flex-direction: column; gap: 18px;">
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Team</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">2 researchers<br>2 designers</dd>
+  <div class="metadata">
+    <div class="meta-item">
+      <span class="label">Role</span>
+      <span class="value">Designer</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Team</span>
+      <span class="value">2 researchers, 2 designers</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Year</span>
+      <span class="value">2016</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design question</h2></div>
+    <div class="section-content">
+      <p>&ldquo;How might the language learning experience be supported and facilitated through the use of modern technologies such as virtual reality?&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Research &amp; discovery</h2></div>
+    <div class="section-content">
+      <div class="research-columns">
+        <div class="research-col">
+          <p>We started with researching about different language learning theories and interviewing linguists at University of Washington Language Department to draw observations on foreign language learning. We followed that with interviewing 12 participants to understand problems they face with current language learning tools. The research and competitive analysis of current tools led us to the conclusion that a more immersive environment is needed for language learning which included elements of social interaction. We decided to leverage VR as all the research showed VR as the natural progression to the current technology. To understand more about VR we reached out to industry experts and attended VR meetups. We also researched various VR platforms and finally decided on AltSpaceVR.</p>
+          <figure class="img-cv3">
+            <img src="assets/cv3.png" alt="A learning-retention pyramid contrasting passive learning (reading, hearing, seeing) with active learning (writing, doing, simulating), used to justify an immersive approach.">
+          </figure>
+          <p>With globalization in full swing, businesses worldwide acknowledge the need to learn not only the language but the culture of another country. In order to efficiently learn languages in a relatively shorter time frame, newer and more effective methods are constantly being sought after. Language learning is also an enormous market as it is evident by the successes of applications such as Duolingo and Rosetta Stone (Review: Babel and Dualingo, 2013). It has been observed through research that in order to be fluent in any given language, one has to be immersed in a surrounding where the target language is the primary medium of communication for a significant amount of time which is not possible for everyone. Simulation-based language learning can overcome time and remote distance issues. Using VR people can manipulate the environment such as language, place, and time variables while being immersed in a situation that feels like a natural environment.</p>
+          <figure class="img-cv5">
+            <img src="assets/cv5.png" alt="A competitive landscape map plotting language apps like Duolingo, Rosetta Stone, Babbel and busuu by learning style and social interaction, with an open market opportunity toward the social, user-driven corner.">
+          </figure>
         </div>
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Role</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">Designer</dd>
+        <div class="research-col">
+          <figure class="img-cv2">
+            <img src="assets/cv2.png" alt="A diagram of our research activities: reaching out to industry, language teaching methods, why virtual reality, competitive analysis, and interviews with language learners.">
+          </figure>
+          <p>Research indicates that learning a new language is optimum between the ages of 10 and 12 years old. This means that for the vast majority of individuals, learning a new language happens after this most effective period is long gone. Language learning challenges also include finding access to native speakers for practicing speech, overcoming feelings of embarrassment or low confidence in one&rsquo;s own ability to speak well, understanding other languages conceptually, and avoiding burnout</p>
+          <figure class="img-cv4">
+            <img src="assets/cv4.png" alt="Kolb's experiential learning cycle: concrete experience, observations and reflections, formation of abstract concepts, and testing implications in new situations.">
+          </figure>
+          <p>The matrix reveals two sets of market opportunities: one in the more Non-Social and User-Driven quadrant, and one in the more Social and Program-Driven quadrant. Based on the research described above, the social aspect of Second Language Acquisition is a key component of learning the hardest part of language learning: speech. The social aspect is also something that VR can help solve better than most existing technologies, and is a great feature to capitalize on. Due to these reasons, and because of the clear gap, we are likely to focus on the Social end of the spectrum. The matrix also shows that we have some room on the spectrum of Learning Style. Our research shows that it is important to teach students the way they learn best.</p>
         </div>
-        <div>
-          <dt style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #a0a09f;">Year</dt>
-          <dd style="margin: 4px 0 0; font-size: 15px;">2016</dd>
-        </div>
-      </dl>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- HOW MIGHT WE -->
-    <section style="padding: 40px 64px; max-width: 900px; margin: 0 auto; text-align: center;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.5; color: #2f2e2e; margin: 0;">&ldquo;How might the language learning experience be supported and facilitated through the use of modern technologies such as virtual reality?&rdquo;</p>
-    </section>
+  <div class="divider"></div>
 
-    <!-- RESEARCH -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Research</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">We started by researching language-learning theories and interviewing linguists at the University of Washington&rsquo;s Language Department, then interviewed 12 participants to understand the problems they faced with current tools. That research and a competitive analysis pointed to the need for a more immersive, socially interactive environment &mdash; which led us to VR. To learn more, we spoke with industry experts, attended VR meetups, evaluated several platforms, and settled on AltSpaceVR.</p>
-
-      <div class="gal gal-2">
-        <figure>
-          <img src="assets/cv2.jpg" alt="A diagram of our research activities: reaching out to industry, language teaching methods, why virtual reality, competitive analysis, and interviews with language learners.">
-          <figcaption>Our research activities across industry outreach, learner interviews, and competitive analysis.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/cv3.jpg" alt="A learning-retention pyramid contrasting passive learning (reading, hearing, seeing) with active learning (writing, doing, simulating), used to justify an immersive approach.">
-          <figcaption>A learning-retention model supporting an active, immersive approach over passive study.</figcaption>
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Design process</h2></div>
+    <div class="section-content">
+      <div class="process-intro-row">
+        <p>Through our interviews we discovered that it can be a real challenge to have social interactions with others in the target language when the learner is a complete beginner and knows very little. This type of social interaction requires a heavy moderation by an instructor, or guide who structures the conversation. Due to this, we feel that VR social interaction is better suited for individuals who have some basic knowledge of the language, and who can form basic sentences. For this reason we decided that our target audience will primarily be people who have some basic knowledge of the language and want to learn the language for business/travel purposes.</p>
+        <figure class="img-cv6">
+          <img src="assets/cv6.png" alt="An early whiteboard sketch mapping out interaction ideas for conVRse: dinner dates, scavenger hunts, roleplay, speech recognition, trivia, and a card-matching game, converging on a virtual museum concept.">
+          <figcaption>Early brainstorming of interaction ideas for the experience.</figcaption>
         </figure>
       </div>
-
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 24px 0 16px;">Language-learning apps like Duolingo and Rosetta Stone had already proven the market, but true fluency requires immersion in an environment where the target language is the primary medium of communication &mdash; something VR can simulate regardless of time or distance. Our research mapped the opportunity space across social vs. user-driven and program-driven dimensions, and pointed clearly toward the social end of the spectrum, since social interaction is key to the hardest part of language learning: speech.</p>
-
-      <div class="gal gal-2">
-        <figure>
-          <img src="assets/cv4.jpg" alt="Kolb's experiential learning cycle: concrete experience, observations and reflections, formation of abstract concepts, and testing implications in new situations.">
-          <figcaption>Kolb&rsquo;s experiential learning model, used to frame conVRse&rsquo;s learn-by-doing approach.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/cv5.jpg" alt="A competitive landscape map plotting language apps like Duolingo, Rosetta Stone, Babbel and busuu by learning style and social interaction, with an open market opportunity toward the social, user-driven corner.">
-          <figcaption>Mapping the competitive landscape by learning style and social interaction.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- DESIGN IMPLEMENTATION -->
-    <section style="padding: 32px 64px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Design implementation</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">Interviews revealed that true beginners need heavy moderation to have social interactions in a new language, so we targeted learners with some basic knowledge who wanted to practice for business or travel. Using SketchUp, we modeled an entire caf&eacute; environment &mdash; mimicking a typical Parisian caf&eacute; with open spaces, a fountain area, and lounge areas for social interaction &mdash; where users could practice ordering coffee, learn about different foods, conversational structure, and cultural etiquette, iterating with lighting and higher-fidelity textures.</p>
-
-      <figure>
-        <img src="assets/cv6.jpg" alt="An early whiteboard sketch mapping out interaction ideas for conVRse: dinner dates, scavenger hunts, roleplay, speech recognition, trivia, and a card-matching game, converging on a virtual museum concept.">
-        <figcaption>Early brainstorming of interaction ideas for the experience.</figcaption>
+      <figure class="img-cv7">
+        <img src="assets/cv7.png" alt="A six-panel storyboard: choosing a virtual destination, arriving in a bird's-eye view of Seattle, browsing experiences, entering a coffee shop, and starting a conversation with a friend.">
+        <figcaption>Storyboard, frames 1&ndash;6.</figcaption>
       </figure>
-
-      <div class="gal gal-3" style="margin-top: 14px;">
-        <figure>
-          <img src="assets/cv7.jpg" alt="A six-panel storyboard: choosing a virtual destination, arriving in a bird's-eye view of Seattle, browsing experiences, entering a coffee shop, and starting a conversation with a friend.">
-          <figcaption>Storyboard, frames 1&ndash;6.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/cv8.jpg" alt="A six-panel storyboard continuing the coffee shop scenario: choosing a size, browsing local landmarks, a Space Needle guide greeting the user, an elevator ride, a view from the top, and a closing reflection.">
-          <figcaption>Storyboard, frames 7&ndash;12.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/cv9.jpg" alt="Written captions describing storyboard frames 7 through 12, walking through the coffee-ordering and Space Needle tour scenario in detail.">
-          <figcaption>Captions for frames 7&ndash;12.</figcaption>
-        </figure>
+      <div class="process-pair">
+        <div>
+          <figure class="img-cv8">
+            <img src="assets/cv8.png" alt="A six-panel storyboard continuing the coffee shop scenario: choosing a size, browsing local landmarks, a Space Needle guide greeting the user, an elevator ride, a view from the top, and a closing reflection.">
+            <figcaption>Storyboard, frames 7&ndash;12.</figcaption>
+          </figure>
+        </div>
+        <div>
+          <figure class="img-cv9">
+            <img src="assets/cv9.png" alt="Written captions describing storyboard frames 7 through 12, walking through the coffee-ordering and Space Needle tour scenario in detail.">
+          </figure>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 24px 0 16px;">Bringing the model from SketchUp Pro into AltSpace required working within AltSpace&rsquo;s specific constraints &mdash; rendering only through three.js in conjunction with Oculus&rsquo; SDK &mdash; which shaped how the environment was ultimately built and previewed.</p>
+  <div class="divider"></div>
 
-      <div class="gal gal-3">
-        <figure>
-          <img src="assets/cv10.jpg" alt="A SketchUp render of the café's stage and screen area with hanging pendant lights.">
-        </figure>
-        <figure>
-          <img src="assets/cv11.jpg" alt="A SketchUp render of the café's seating area, decorated with framed posters, a menu board, a guitar, and café tables.">
-        </figure>
-        <figure>
-          <img src="assets/cv12.jpg" alt="A first-person view inside the virtual café in AltSpaceVR, looking down a corridor with starfield windows toward an interactive panel.">
-        </figure>
-        <figure>
-          <img src="assets/cv13.jpg" alt="A SketchUp render of a standing microphone prop modeled for the café environment.">
-        </figure>
-        <figure>
-          <img src="assets/cv14.jpg" alt="A SketchUp render of a café table with a chair, a potted plant, and an apple, used to prototype table-side interactions.">
-        </figure>
-      </div>
-      <p class="sr-only">Five SketchUp renders of the caf&eacute; environment, built for the AltSpaceVR experience.</p>
-
-      <figure style="margin-top: 14px;">
-        <img src="assets/cv15.jpg" alt="A user wearing an Oculus headset while testing the conVRse prototype on a laptop, with the AltSpaceVR café visible on screen.">
-        <figcaption>Usability testing the prototype in AltSpaceVR.</figcaption>
+  <div class="final-designs" data-reveal>
+    <h2>Final designs</h2>
+    <p>The main approach we wanted to make with our modeled environment is to show the design intent and how we imagine our interactive space would look like. Using SketchUp, we modeled out an entire cafe environment which could be one of the choices that our users will have to interact with.</p>
+    <div class="final-row">
+      <figure class="img-cv10">
+        <img src="assets/cv10.png" alt="A SketchUp render of the café's stage and screen area with hanging pendant lights.">
       </figure>
-    </section>
+      <figure class="img-cv11">
+        <img src="assets/cv11.png" alt="A SketchUp render of the café's seating area, decorated with framed posters, a menu board, a guitar, and café tables.">
+      </figure>
+    </div>
+    <p>In this space, users may be exposed to how to order coffee in a new language, different types of foods, conversational structure, and even cultural etiquette. We designed this space to mimic a typical coffee shop found in Paris with open spaces, a fountain area, and various lounge areas for social interactions. This allows the user to experience this culture within context as if they&rsquo;ve traveled to Paris, and learn to speak French the way that it was intended to be used. This is just our first draft of the model and we iterated on the design further by adding lighting and higher fidelity textures.</p>
+    <div class="final-pair">
+      <figure class="img-cv12">
+        <img src="assets/cv12.png" alt="A first-person view inside the virtual café in AltSpaceVR, looking down a corridor with starfield windows toward an interactive panel.">
+      </figure>
+      <figure class="img-cv13">
+        <img src="assets/cv13.png" alt="A SketchUp render of a standing microphone prop modeled for the café environment.">
+      </figure>
+    </div>
+    <p>We then needed to take an object from SketchUp Pro into Altspace. In order to do this we would need to go through a number of steps to allow us to preview the object since Altspace has a very specific way of viewing content with many unique constraints having to only use three.js in conjunction with Oculus&rsquo; SDK.</p>
+    <div class="final-row">
+      <figure class="img-cv14">
+        <img src="assets/cv14.png" alt="A SketchUp render of a café table with a chair, a potted plant, and an apple, used to prototype table-side interactions.">
+      </figure>
+      <figure class="img-cv15">
+        <img src="assets/cv15.png" alt="A user wearing an Oculus headset while testing the conVRse prototype on a laptop, with the AltSpaceVR café visible on screen.">
+      </figure>
+    </div>
+  </div>
 
-    <!-- RESULTS -->
-    <section style="padding: 32px 64px 72px; max-width: 900px; margin: 0 auto;">
-      <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 16px;">Results</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: #4a4a4a; margin: 0 0 16px;">The project won Best in Show at our department&rsquo;s annual Capstone Presentation. Intel and the AltSpace team both expressed interest in the concept, and user feedback confirmed the core hypothesis about engagement &mdash; as one participant put it, &ldquo;When I&rsquo;m in this thing, I feel so engaged by it.&rdquo;</p>
+  <div class="divider"></div>
 
-      <div class="gal gal-2">
-        <figure>
-          <img src="assets/cv17.jpg" alt="Presenting the conVRse project poster at the department's Capstone showcase.">
-          <figcaption>Presenting at the Capstone showcase.</figcaption>
-        </figure>
-        <figure>
+  <div class="section" data-reveal>
+    <div class="section-heading"><h2>Results &amp; impact</h2></div>
+    <div class="section-content">
+      <p>One main thing we continued to gain confirmation for, was the value in teaching a foreign language using VR technology. Not only did Intel express interest in it, but the Altspace team was willing to support us and meet with our team to get our model working and continued to show interest in launching a language learning application in their environment. Additionally, all our interviewees expressed enthusiasm for the concept and our user evaluation further proved that this is a worthwhile venture to pursue.</p>
+      <div class="results-row">
+        <figure class="img-cv16">
           <img src="assets/cv16.jpg" alt="The conVRse team accepting a Best in Show award at the Capstone Presentation.">
-          <figcaption>Best in Show, Capstone Presentation.</figcaption>
+        </figure>
+        <figure class="img-cv17">
+          <img src="assets/cv17.jpg" alt="Presenting the conVRse project poster at the department's Capstone showcase.">
         </figure>
       </div>
-    </section>
-
-    <div style="padding: 24px 64px; text-align: center;">
-      <a href="index.html#portfolio" style="font-size: 14px; color: #8a8a8a; border-bottom: 1px solid #cccccc; padding-bottom: 2px;">&larr; Back to portfolio</a>
+      <div class="results-quote">
+        <p>&ldquo;When I&rsquo;m in this thing, I feel so engaged by it.&rdquo; &mdash; Participant</p>
+        <p>As the closing capstone project to our careers at the Human Centered Design &amp; Engineering department, we participated in the annual Capstone Presentation and won &ldquo;Best In Show&rdquo; for graduate attendees. It was a rewarding experience to let people try out our language learning experience and see for themselves how VR can further retain their progress when learning a new language!</p>
+      </div>
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/Evh5xA55hyc" title="ConVRse Demo, HCDE Open House 2016" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
     </div>
-  </main>
+  </div>
 
-  <footer style="background: #2f2e2e; color: #9a9a9a; padding: 24px 64px; text-align: center; font-size: 13px;">
-    gordopat@gmail.com &copy; 2026
-  </footer>
+</main>
 
+<div class="divider" style="margin-top: 96px;"></div>
+
+<div class="footer">
+  <div class="footer-row">
+    <a class="back-link" href="index.html#portfolio">&larr; Back to portfolio</a>
+    <span class="copyright">gordopat@gmail.com &copy; 2026</span>
+  </div>
 </div>
+
 </body>
 </html>
