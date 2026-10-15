@@ -244,3 +244,23 @@ figcaption {
     height: auto !important;
   }
 }
+
+/* Keep the primary nav (Portfolio / About / Contact / Resume) on a single
+   line on phone-width screens instead of wrapping item-by-item. The header
+   and nav are inline-styled (shared markup repeated per page), so these
+   overrides use !important and target the stable aria-label/element. */
+@media (max-width: 600px) {
+  header {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  nav[aria-label="Primary"] {
+    gap: 6px 16px !important;
+  }
+
+  nav[aria-label="Primary"] a {
+    font-size: 14px !important;
+    padding: 10px 2px !important;
+  }
+}
